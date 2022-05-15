@@ -1,11 +1,17 @@
 <template>
-  <div></div>
+  <div class="container">
+    <main-card></main-card>
+  </div>
 </template>
 
 <script>
+import MainCard from "./components/MainCard.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    MainCard,
+  },
 };
 </script>
 
@@ -21,6 +27,26 @@ export default {
 body {
   font-family: "Rubik", sans-serif;
   min-height: 100vh;
-  background-color: hsl(246, 80%, 60%);
+  background-color: $bg-blue;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: grid;
+  max-width: 1024px;
+  margin: 0 auto;
+  grid-auto-columns: minmax(250px, auto);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
 }
 </style>
