@@ -1,16 +1,19 @@
 <template>
   <div class="container">
     <main-card></main-card>
+    <sub-card></sub-card>
   </div>
 </template>
 
 <script>
 import MainCard from "./components/MainCard.vue";
+import SubCard from "./components/SubCard.vue";
 
 export default {
   name: "App",
   components: {
     MainCard,
+    SubCard,
   },
 };
 </script>
@@ -45,8 +48,7 @@ ul li {
   display: grid;
   max-width: 1024px;
   margin: 0 auto;
-  grid-auto-columns: minmax(250px, auto);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: max-content max-content;
   gap: 1rem;
 }
 </style>

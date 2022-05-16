@@ -39,13 +39,14 @@ export default {
 
 <style scoped lang="scss">
 section {
-  grid-row: 1 / 3;
   grid-column: 1 / 2;
 }
 
 .profile {
   background-color: $primary;
   border-radius: 1rem;
+  min-width: 225px;
+
   &-body {
     background-color: $primary-light;
     padding: 1.5rem;

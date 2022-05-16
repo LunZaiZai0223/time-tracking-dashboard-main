@@ -23,7 +23,7 @@ export default {
 .button {
   &-list {
     display: flex;
-    gap: 0.7rem;
+    gap: 1rem;
     flex-direction: column;
     padding: 1.5rem;
 
