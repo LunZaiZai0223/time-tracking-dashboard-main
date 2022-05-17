@@ -30,6 +30,110 @@ export default {
         "#7536d3",
         "#f1c65b",
       ],
+      data: [
+        {
+          title: "Work",
+          timeframes: {
+            daily: {
+              current: 5,
+              previous: 7,
+            },
+            weekly: {
+              current: 32,
+              previous: 36,
+            },
+            monthly: {
+              current: 103,
+              previous: 128,
+            },
+          },
+        },
+        {
+          title: "Play",
+          timeframes: {
+            daily: {
+              current: 1,
+              previous: 2,
+            },
+            weekly: {
+              current: 10,
+              previous: 8,
+            },
+            monthly: {
+              current: 23,
+              previous: 29,
+            },
+          },
+        },
+        {
+          title: "Study",
+          timeframes: {
+            daily: {
+              current: 0,
+              previous: 1,
+            },
+            weekly: {
+              current: 4,
+              previous: 7,
+            },
+            monthly: {
+              current: 13,
+              previous: 19,
+            },
+          },
+        },
+        {
+          title: "Exercise",
+          timeframes: {
+            daily: {
+              current: 1,
+              previous: 1,
+            },
+            weekly: {
+              current: 4,
+              previous: 5,
+            },
+            monthly: {
+              current: 11,
+              previous: 18,
+            },
+          },
+        },
+        {
+          title: "Social",
+          timeframes: {
+            daily: {
+              current: 1,
+              previous: 3,
+            },
+            weekly: {
+              current: 5,
+              previous: 10,
+            },
+            monthly: {
+              current: 21,
+              previous: 23,
+            },
+          },
+        },
+        {
+          title: "Self Care",
+          timeframes: {
+            daily: {
+              current: 0,
+              previous: 1,
+            },
+            weekly: {
+              current: 2,
+              previous: 2,
+            },
+            monthly: {
+              current: 7,
+              previous: 11,
+            },
+          },
+        },
+      ],
     };
   },
   computed: {
@@ -38,21 +142,22 @@ export default {
     },
   },
   methods: {
-    async processDataRequest() {
-      const [requestError, data] = await this.requestData();
-      if (requestError) {
-        throw new Error("Something went wrong");
-      }
-      this.setDataList(data, this.colorList);
-    },
-    async requestData() {
-      const response = await fetch("http://localhost:3000/data");
-      const data = await response
-        .json()
-        .then((data) => [null, data])
-        .catch((error) => Promise.resolve([error, null]));
-      return data;
-    },
+    //   async processDataRequest() {
+    //     const [requestError, data] = await this.requestData();
+    //     if (requestError) {
+    //       throw new Error("Something went wrong");
+    //     }
+    //     console.log(data);
+    //     this.setDataList(data, this.colorList);
+    //   },
+    //   async requestData() {
+    //     const response = await fetch("http://localhost:3000/data");
+    //     const data = await response
+    //       .json()
+    //       .then((data) => [null, data])
+    //       .catch((error) => Promise.resolve([error, null]));
+    //     return data;
+    //   },
     setDataList(data, colorList) {
       this.list = data.map((item, index) =>
         Object.assign(item, {
@@ -62,7 +167,9 @@ export default {
     },
   },
   mounted() {
-    this.processDataRequest();
+    // this.processDataRequest();
+    this.setDataList(this.data, this.colorList);
+    console.log(this.list);
   },
 };
 </script>
