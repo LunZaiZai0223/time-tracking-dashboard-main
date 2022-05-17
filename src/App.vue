@@ -2,6 +2,17 @@
   <div class="container">
     <main-card @select-time-state="selectTimeState"></main-card>
     <sub-card></sub-card>
+    <footer class="footer">
+      <p>
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/LunZaiZai0223" target="_blank"
+          >LunZaiZai0223</a
+        >.
+      </p>
+    </footer>
   </div>
 </template>
 
@@ -72,6 +83,19 @@ ul li {
   }
   @media screen and (max-width: 668px) {
     padding: 2.5rem 0;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: White;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    margin-top: 1.5rem;
+    position: relative;
   }
 }
 </style>
