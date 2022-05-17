@@ -44,7 +44,6 @@ export default {
         throw new Error("Something went wrong");
       }
       this.setDataList(data, this.colorList);
-      console.log(this.list);
     },
     async requestData() {
       const response = await fetch("http://localhost:3000/data");

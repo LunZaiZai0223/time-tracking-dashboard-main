@@ -14,25 +14,47 @@
           >
         </h1>
       </div>
-      <button-list></button-list>
+      <ul class="button-list">
+        <li
+          class="button-item"
+          v-for="(timeStateItem, index) in timeStateList"
+          :key="index"
+          @click="selectTimeState(timeStateItem)"
+        >
+          <span
+            :class="{
+              'is-active': setIsActiveClass(timeStateItem),
+            }"
+          >
+            {{ timeStateItem }}
+          </span>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
 
 <script>
-import ButtonList from "./ButtonList.vue";
-
 export default {
   name: "MainCard",
-  components: {
-    ButtonList,
-  },
+  emits: ["select-time-state"],
+  inject: ["timeState"],
   data() {
     return {
       title: "Report for",
       lastname: "Robson",
       firstname: "Jeremy",
+      timeStateList: ["Daily", "Weekly", "Monthly"],
+      timeStateLocal: this.timeState,
     };
+  },
+  methods: {
+    selectTimeState(time) {
+      this.$emit("select-time-state", time.toLowerCase());
+    },
+    setIsActiveClass(item) {
+      return item.toLowerCase() === this.timeStateLocal;
+    },
   },
 };
 </script>
@@ -81,6 +103,34 @@ section {
         flex-direction: column;
         gap: 0.25rem;
       }
+    }
+  }
+}
+
+.button {
+  &-list {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    padding: 1.5rem;
+
+    span {
+      color: $secondary-light;
+      font-weight: 300;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: color 0.25s ease-in, opacity 0.25s ease-in;
+
+      &:hover {
+        opacity: 1;
+        color: White;
+      }
+    }
+
+    .is-active {
+      color: White;
+      opacity: 1;
+      font-weight: 400;
     }
   }
 }

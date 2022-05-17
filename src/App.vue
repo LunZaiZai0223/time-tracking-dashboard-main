@@ -1,11 +1,13 @@
 <template>
   <div class="container">
-    <main-card></main-card>
+    <main-card @select-time-state="selectTimeState"></main-card>
     <sub-card></sub-card>
   </div>
 </template>
 
 <script>
+import { computed } from "vue";
+
 import MainCard from "./components/MainCard.vue";
 import SubCard from "./components/SubCard.vue";
 
@@ -14,6 +16,21 @@ export default {
   components: {
     MainCard,
     SubCard,
+  },
+  data() {
+    return {
+      timeState: "daily",
+    };
+  },
+  provide() {
+    return {
+      timeState: computed(() => this.timeState),
+    };
+  },
+  methods: {
+    selectTimeState(time) {
+      this.timeState = time;
+    },
   },
 };
 </script>

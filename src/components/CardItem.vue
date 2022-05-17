@@ -18,10 +18,11 @@
         </div>
       </header>
       <div class="card-body-content">
-        <p>32<span>hrs</span></p>
+        <p>{{ getCurrentData }}<span>hrs</span></p>
       </div>
-      <footer class="card-body-footer">Last Day - 7hrs</footer>
-      <div>{{ timeframes }}</div>
+      <footer class="card-body-footer">
+        <div>{{ getPreviousData }}</div>
+      </footer>
     </div>
   </div>
 </template>
@@ -36,6 +37,7 @@ import selfCareIcon from "../assets/images/icon-self-care.svg";
 
 export default {
   name: "CardItem",
+  inject: ["timeState"],
   props: {
     title: {
       type: String,
@@ -66,6 +68,28 @@ export default {
       selfCareIcon,
     };
   },
+  computed: {
+    lowerCaseTimeState() {
+      return this.timeState.toLowerCase();
+    },
+    getPreviousData() {
+      const currentProp = this.lowerCaseTimeState;
+      if (currentProp === "daily") {
+        return `Last Day - ${this.timeframes[currentProp].previous}hrs`;
+      }
+      if (currentProp === "weekly") {
+        return `Last Week - ${this.timeframes[currentProp].previous}hrs`;
+      }
+      if (currentProp === "monthly") {
+        return `Last Month - ${this.timeframes[currentProp].previous}hrs`;
+      }
+      return null;
+    },
+    getCurrentData() {
+      const currentProp = this.lowerCaseTimeState;
+      return this.timeframes[currentProp].current;
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -91,13 +115,13 @@ export default {
     }
   }
   &-body {
-    height: 80%;
     z-index: 99;
     border-radius: 1rem;
     border-bottom-right-radius: 0.85rem;
     border-bottom-left-radius: 0.85rem;
     background-color: $primary;
-    padding: 1.75rem 1.5rem;
+    padding: 1.5rem;
+    padding-bottom: 0px;
     cursor: pointer;
     transition: opacity 0.25s;
 
@@ -130,6 +154,11 @@ export default {
     &-footer {
       margin-top: 0.75rem;
       color: $secondary-light;
+
+      div {
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+      }
     }
   }
 }
