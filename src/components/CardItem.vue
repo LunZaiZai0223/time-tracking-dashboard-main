@@ -175,16 +175,14 @@ export default {
       }
 
       p {
-        font-size: 1.75rem;
-        @media screen and (max-width: 886px) {
-          font-size: 2rem;
-        }
+        font-size: 2rem;
       }
     }
 
     &-footer {
       margin-top: 0.75rem;
       color: $secondary-light;
+      font-size: 1.25rem;
       @media screen and (max-width: 668px) {
         font-size: 0.85rem;
         margin-top: 0;

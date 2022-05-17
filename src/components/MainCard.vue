@@ -117,6 +117,9 @@ section {
         @media screen and (max-width: 886px) {
           flex-direction: row;
         }
+        @media screen and (max-width: 668px) {
+          font-size: 1.75rem;
+        }
       }
     }
   }
