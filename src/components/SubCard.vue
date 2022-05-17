@@ -72,5 +72,11 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 250px);
   gap: 1rem;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+  @media screen and (max-width: 668px) {
+    grid-template-columns: auto;
+  }
 }
 </style>

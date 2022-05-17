@@ -19,10 +19,10 @@
       </header>
       <div class="card-body-content">
         <p>{{ getCurrentData }}<span>hrs</span></p>
+        <footer class="card-body-footer">
+          {{ getPreviousData }}
+        </footer>
       </div>
-      <footer class="card-body-footer">
-        <div>{{ getPreviousData }}</div>
-      </footer>
     </div>
   </div>
 </template>
@@ -100,9 +100,19 @@ export default {
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
+    justify-content: space-between;
+    @media screen and (max-width: 886px) {
+      gap: 1rem;
+    }
   }
   &-header {
     height: 20%;
+    @media screen and (max-width: 886px) {
+      padding-bottom: 1.5rem;
+    }
+    @media screen and (max-width: 668px) {
+      padding-bottom: 0.75rem;
+    }
   }
   &-icon {
     position: absolute;
@@ -121,9 +131,12 @@ export default {
     border-bottom-left-radius: 0.85rem;
     background-color: $primary;
     padding: 1.5rem;
-    padding-bottom: 0px;
     cursor: pointer;
     transition: opacity 0.25s;
+    height: 80%;
+    @media screen and (max-width: 668px) {
+      padding-bottom: 1.5rem;
+    }
 
     &:hover {
       opacity: 0.8;
@@ -149,11 +162,36 @@ export default {
       color: White;
       margin-top: 1.5rem;
       font-weight: 300;
+      @media screen and (max-width: 886px) {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      @media screen and (max-width: 668px) {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      p {
+        font-size: 1.75rem;
+        @media screen and (max-width: 886px) {
+          font-size: 2rem;
+        }
+      }
     }
 
     &-footer {
       margin-top: 0.75rem;
       color: $secondary-light;
+      @media screen and (max-width: 668px) {
+        font-size: 0.85rem;
+        margin-top: 0;
+      }
+      @media screen and (max-width: 886px) {
+        font-size: 1rem;
+      }
 
       div {
         margin-bottom: 1.5rem;

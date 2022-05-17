@@ -76,6 +76,13 @@ section {
     padding-bottom: 5rem;
     border-radius: 1rem;
 
+    @media screen and (max-width: 886px) {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.5rem !important;
+    }
+
     &-avatar {
       display: block;
       width: 70px;
@@ -83,6 +90,10 @@ section {
       border: 2px solid White;
       border-radius: 50%;
       margin-bottom: 1.5rem;
+
+      @media screen and (max-width: 886px) {
+        margin-bottom: 0;
+      }
     }
 
     &-text {
@@ -102,6 +113,10 @@ section {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
+
+        @media screen and (max-width: 886px) {
+          flex-direction: row;
+        }
       }
     }
   }
@@ -113,6 +128,12 @@ section {
     gap: 1rem;
     flex-direction: column;
     padding: 1.5rem;
+
+    @media screen and (max-width: 886px) {
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+    }
 
     span {
       color: $secondary-light;

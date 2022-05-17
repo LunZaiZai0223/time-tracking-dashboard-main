@@ -67,5 +67,11 @@ ul li {
   margin: 0 auto;
   grid-template-columns: max-content max-content;
   gap: 1rem;
+  @media screen and (max-width: 886px) {
+    grid-template-columns: auto;
+  }
+  @media screen and (max-width: 668px) {
+    padding: 2.5rem 0;
+  }
 }
 </style>
