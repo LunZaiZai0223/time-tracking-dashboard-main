@@ -1,24 +1,21 @@
-# time-tracking-dashboard-main
+# [Vue] Time-tracking-dashboard-main
 
-## Project setup
-```
-npm install
-```
+## Overview
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### The challenges
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- use `grid` layout system
+  - split elements into two blocks
+  - split second block into six smaller squares
+- structure vue components
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Screenshot
+
+![](https://hackmd.io/_uploads/HJ0ieB-Pc.png)
+
+![](https://hackmd.io/_uploads/SyG3gS-Pq.png)
+
+### Link
+
+Demo: https://lunzaizai0223.github.io/time-tracking-dashboard-main/
